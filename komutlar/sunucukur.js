@@ -131,6 +131,9 @@ exports.run = async (client, message, args) => {
     	message.guild.createChannel('Müzik Odası - 2', 'voice').then(mzk2 => {
     	mzk2.setParent(sesli.id)
     })
+      message.guild.createChannel('Afk Odası', 'voice').then(afk => {
+    	afk.setParent(sesli.id)
+    })
     }, 15000)
 
     })})})})
