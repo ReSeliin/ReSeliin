@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 
 exports.run = function(client, message, args) {
-  const hayir = "❌";
-  const evet = "✅";
+  const hayir = "🔥";
+  const evet = "😮";
   if (!message.member.hasPermission("ADMINISTRATOR"))
     return message.channel.send(
       "⚠️ | Bu komutu kullanabilmek için `Yönetici` yetkisine sahip olmalısın!"
