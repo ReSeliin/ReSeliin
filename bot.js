@@ -380,7 +380,7 @@ botdurum.send(botistatistik);
   
   app.listen(8000);
 setInterval(() => {
-  http.get('https://silky-learning.glitch.me/');//Buraya yazan yere glitch link
+  http.get('https://trashbotv1.glitch.me/');//Buraya yazan yere glitch link
 }, 280000)
   
   client.on('guildMemberAdd', async member => {

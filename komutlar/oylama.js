@@ -13,7 +13,7 @@ exports.run = function(client, message, args) {
   message.channel
     .send(
       new Discord.RichEmbed()
-        .setTitle("Oylama")
+        .setTitle("Özel Teklif")
         .setDescription(msg)
         .setColor("RANDOM")
         .setFooter(
