@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+/*const Discord = require('discord.js');
 const db = require('quick.db');
 const {stripIndents} = require('common-tags');
 
@@ -211,7 +211,7 @@ exports.conf = {
 	enabled: true,
 	guildOnly: false,
 	aliases: ['sunucukurulum', 'sunucu-kur', 'sunucukur'],
-	permLevel: 3,
+	permLevel: 4,
 	kategori: 'moderasyon'
 };
 
@@ -219,4 +219,4 @@ exports.help = {
 	name: 'sunucu-kurulum',
 	description: 'Sunucunuzu sıfırlar ve tekrardan botun ayarlarını ayarlayarak gerekli rolleri, kanalları, kategorileri oluşturarak sunucu kurar.',
 	usage: 'sunucu-kurulum'
-};
+};//
