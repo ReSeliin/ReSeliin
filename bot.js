@@ -377,7 +377,10 @@ botdurum.send(botistatistik);
   }
 })
   
-  
+  app.listen(8000);
+setInterval(() => {
+  http.get('https://silky-learning.glitch.me/');//Buraya yazan yere glitch link
+}, 280000)
   
   
 });

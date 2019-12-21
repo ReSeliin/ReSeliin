@@ -11,7 +11,7 @@ exports.run = (client, message, args) => {
     return message.author.sendEmbed(ozelmesajuyari); }
 
   let mesaj = args.slice(0).join(' ');
-if (mesaj.length < 1) return message.channel.send('DMYe ne yazağım aloo ?.');
+if (mesaj.length < 1) return message.channel.send('DMYe ne yazağım aloo ?');
 
   message.delete();
 
@@ -25,7 +25,7 @@ if (mesaj.length < 1) return message.channel.send('DMYe ne yazağım aloo ?.');
 u.sendEmbed(mesajat)
 })
 
-message.channel.send(`✅ KnK hallettim ya sıkıntı yok`);
+message.channel.send(`✅Attım bro sıkıntı yok`);
 
 };
 
