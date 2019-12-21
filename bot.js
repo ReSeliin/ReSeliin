@@ -338,6 +338,7 @@ client.on('voiceStateUpdate', async (oldMember, newMember) => {
         c.send(`**${oldMember.user.username}#${oldMember.user.discriminator}** sesli bir kanaldan ayrıldı`,{embed})
     }
   
+  
   client.on('ready', () => {
   const moment = require("moment");
 require("moment-duration-format");
@@ -390,6 +391,5 @@ setInterval(() => {
   member.setNickname(tag.replace('{uye}', member.user.username))
 })
 
-  
   
 });
