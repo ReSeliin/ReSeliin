@@ -359,4 +359,25 @@ botdurum.send(botistatistik);
   }, 3600000); //Milisaniye cinsinden. 1 saniye =  1000 milisaniye. Örnek Olarak 1 saat = 3600000milisaniye
 });
   
+  client.on('message', async message => {
+  let ke = await db.fetch(`kufur_${message.guild.id}`)
+  
+  if (ke === "kapali" || ke === undefined || ke === null){
+    return;
+  } else if (ke === "acik") {
+    let küfür = ["küfür1", "küfür2", "küfür3", "küfür4", "küfür5", "küfür6" ] //bu yolla istediğiniz gibi uzatabilirsiniz.
+    if (küfür.some(word => message.content.includes(word))){
+        if (!message.member.hasPermission("BAN_MEMBERS")) {
+        message.delete();
+        message.channel.send("Küfür etmek yasak kardeşim!")
+        message.guild.owner.send("Sunucunuzda bir kişi küfür etti. \nKullanıcı: "+ message.author.tag +" \nMesaj: **"+ message +"** ")
+      }
+    }
+    
+  }
+})
+  
+  
+  
+  
 });
