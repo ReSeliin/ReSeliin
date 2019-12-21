@@ -1,43 +1,27 @@
-const Discord = require('discord.js')
-const db = require('quick.db');
-const ayarlar = require('../ayarlar.json')
+const Discord = require('discord.js');
+const db = require('quick.db')
+
 exports.run = async (client, message, args) => {
   
-var prefix = ayarlar.prefix;
+  let rol = message.mentions.roles.first();
+  let kanal = message.mentions.channels.first();
   
-if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.channel.send(`Bu işlemi gerçekleştirmem için "\`Rolleri Yönet\`" yetkisine sahip olmalıyım.`)   
-  if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(`Bu komutu kullanabilmek için "\`Sunucuyu Yönet\`" yetkisine sahip olmalısın.`);
-  let mesaj = args.slice(0).join(' ')
-  let otorol= db.fetch(`otorol_${message.guild.id}`)
-  let rol = message.mentions.roles.first()
-  let rolk = message.mentions.channels.first() 
-  if(mesaj === "kapat") {
-    if(!otorol) {
-      message.channel.send(`Bu sunucuda otorol ayarlanmamış.`)
-      return
-    } 
-    db.delete(`otorol_${message.guild.id}`)
-    db.delete(`otolog_${message.guild.id}`)
-    message.channel.send(`Otorol başarıyla kapatıldı.`)
-    return
-  }
-  if (!rol) return message.channel.send(`Giriş yapanlara vereceğim rolü belirtmelisin. Örnek: \`${prefix}otorol @Rol #Kanal\``)
-  if (!rolk) return message.channel.send(`Rol verildiğinde bildirimin gideceği kanalı belirtmelisin. Örnek: \`${prefix}otorol @Rol #Kanal\``)
+  if (!rol) return message.reply('Lütfen otorol sonucunda verilecek bir rol etiketleyin!')
+  if (!kanal) return message.reply('Lütfen otorol sonucunda rolün verildi yazısı için bir kanal etiketleyin!')
   
-  db.set(`otorol_${message.guild.id}`, rol.id)
-  db.set(`otolog_${message.guild.id}` ,rolk.id)
+  db.set(`otoR_${message.guild.id}`, rol.id);
+  db.set(`otoK_${message.guild.id}`, kanal.id);
   
-  message.channel.send(`Giriş yapanlara verilecek rol \`${rol.name}\`, bildirimin gideceği kanal ise ${rolk} olarak ayarlandı.`)
-  };
-    
+  message.channel.send(`Otorol \`${rol.name}\` Kanalı ${kanal} olarak ayarlandı!`)
+}
 exports.conf = {
-    enabled: true,
-    guildOnly: true,
-    aliases: ['girişrol'],
-    permLevel: 2
-};
+  enabled: true,
+  guildOnly: false,
+  aliases: ["oto-rol"],
+  permLevel: 3
+}
 exports.help = {
-    name: 'otorol',
-    description: 'Sunucuya giren kullanıcıya seçtiğiniz rolü otomatik verir.',
-    usage: 'otorol <@rol> <#kanal>'
-};
+  name: "otorol",
+  description: "Otorol ayarlama komutudur.",
+  usage: "otorol <@üye>"
+}

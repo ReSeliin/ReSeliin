@@ -391,5 +391,34 @@ setInterval(() => {
   member.setNickname(tag.replace('{uye}', member.user.username))
 })
 
+  client.on('guildMemberAdd', async member => {
+  let sayi = await db.fetch(`sayac_${member.guild.id}`)
+  let kanal = await db.fetch(`sayacK_${member.guild.id}`)
+  
+  if (!sayi) return
+  if (!kanal) return
+  
+  client.channels.get(kanal).send(`:inbox_tray: ${member} Hoşgeldin **${sayi}** kişi olmamıza **${sayi - member.guild.members.size}** kişi kaldı sayende 🤗`)
+})
+client.on('guildMemberRemove', async member => {
+  let sayi = await db.fetch(`sayac_${member.guild.id}`)
+  let kanal = await db.fetch(`sayacK_${member.guild.id}`)
+  
+  if (!sayi) return
+  if (!kanal) return
+  
+  client.channels.get(kanal).send(`:outbox_tray: ${member} Sunucudan ayrıldı! **${sayi}** kişi olmamıza **${sayi - member.guild.members.size}** kişi kaldı 🤔!`)
+})
+  
+  client.on('guildMemberAdd', async member => {
+  let rol = await db.fetch(`otoR_${member.guild.id}`)
+  let kanal = await db.fetch(`otoK_${member.guild.id}`)
+  
+  if (!rol) return
+  if (!kanal) return
+  
+  member.addRole(member.guild.roles.get(rol))
+  client.channels.get(kanal).send(`Merhaba ${member} başarıyla rolün verildi.`)
+})
   
 });
