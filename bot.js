@@ -338,6 +338,25 @@ client.on('voiceStateUpdate', async (oldMember, newMember) => {
         c.send(`**${oldMember.user.username}#${oldMember.user.discriminator}** sesli bir kanaldan ayrıldı`,{embed})
     }
   
-  
+  client.on('ready', () => {
+  const moment = require("moment");
+require("moment-duration-format");
+
+ setInterval(() => {
+const calismasure = moment.duration(client.uptime).format(" D [gün], H [saat], m [dakika], s [saniye]");
+let botdurum = client.channels.find(c => c.id === 'KANALID')//Botun sürekli mesaj atacağı kanal.
+const botistatistik = new Discord.RichEmbed()
+    .setColor('RED')
+    .setTitle('= Bot İstatistikleri =')
+    
+.addField(`RAM`,`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}/512mb`)
+.addField(`Çalışma Süresi`,`${calismasure}`)
+.addField(`Ping`,`${client.ping}`)
+.addField(`discord.js`,`v${Discord.version}`)
+.addField(`Bilgi`,`${client.guilds.size.toLocaleString()} sunucu ve ${client.users.array().length} kullanıcıya hizmet veriyor.`)
+.setTimestamp()
+botdurum.send(botistatistik);
+  }, 3600000); //Milisaniye cinsinden. 1 saniye =  1000 milisaniye. Örnek Olarak 1 saat = 3600000milisaniye
+});
   
 });
