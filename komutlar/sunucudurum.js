@@ -19,7 +19,7 @@ exports.conf = {
   enabled: true,
   guildOnly: true,
   aliases: ['sb'],
-  permLevel: 0
+  permLevel: 3
 };
 exports.help = {
   name: 'sunucubilgi',

@@ -10,7 +10,7 @@ module.exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ["ıdgöster"],
-  permLevel: 0
+  permLevel: 3
 };
 
 module.exports.help = {

@@ -15,7 +15,7 @@ exports.conf = {
   enabled: true,//True => Komut açık, False => Komut kapalı
   guildOnly: false, //True => Sadece Servere Özel, False => Heryerde kullanılabilir
   aliases: [],//Komutun farklı kullanımları ÖR: !ping, !p
-  permLevel: 0 //kimlerin kullanabileceğini  (bot.js dosyasında perm leveller yazıyor)
+  permLevel: 3 //kimlerin kullanabileceğini  (bot.js dosyasında perm leveller yazıyor)
 };
 
 exports.help = {

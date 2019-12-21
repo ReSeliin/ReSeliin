@@ -64,7 +64,7 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ["sunucui"],
-  permLevel: 0
+  permLevel: 3
 };
 
 exports.help = {
