@@ -16,7 +16,7 @@ message.channel.bulkDelete(args[0]).then(() => {
     .addField('👨 Yetkili: ', message.author.username)
     .addField('🔥 Sonuç: ', `Başarılı`)
     .addField('📝 Kaç Adet', + messagecount)
-    .setFooter(message.author.username + message.author.avatarURL)
+    .setFooter(message.author.username)
     return message.channel.sendEmbed(sohbetsilindi).then(msg => msg.delete(5000));
     console.log("**Sohbet " + message.member + " tarafından silindi! **").then(msg => msg.delete(5000));
 

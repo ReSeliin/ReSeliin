@@ -33,7 +33,7 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ['herkesedm'],
-  permLevel: 4
+  permLevel: 3
 };
 
 exports.help = {
