@@ -382,5 +382,13 @@ setInterval(() => {
   http.get('https://silky-learning.glitch.me/');//Buraya yazan yere glitch link
 }, 280000)
   
+  client.on('guildMemberAdd', async member => {
+  let tag = await db.fetch(`tag_${member.guild.id}`)
+  
+  if (!tag) return
+  
+  member.setNickname(tag.replace('{uye}', member.user.username))
+})
+
   
 });
