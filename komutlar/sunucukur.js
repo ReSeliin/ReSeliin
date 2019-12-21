@@ -1,4 +1,4 @@
-/*const Discord = require('discord.js');
+const Discord = require('discord.js');
 const db = require('quick.db');
 const {stripIndents} = require('common-tags');
 
@@ -219,4 +219,4 @@ exports.help = {
 	name: 'sunucu-kurulum',
 	description: 'Sunucunuzu sıfırlar ve tekrardan botun ayarlarını ayarlayarak gerekli rolleri, kanalları, kategorileri oluşturarak sunucu kurar.',
 	usage: 'sunucu-kurulum'
-};//
+};

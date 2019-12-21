@@ -26,7 +26,7 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ["sil-üye", "mesaj-sil-üye", "mesajları-sil-üye"],
-  permLevel: 2
+  permLevel: 3
 };
 
 exports.help = {
