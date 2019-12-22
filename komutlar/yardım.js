@@ -6,13 +6,15 @@ var prefix = ayarlar.prefix;
 exports.run = (client, message, params) => {
     const embedyardim = new Discord.RichEmbed()
         .setColor("#9900CC")
-       .addField("sunucular", "botun bulunduğu sunucuları gösterir")
-    .addField("KOMUT 2", "KOMUT AÇIKLAMASI 2")
-    .addField("KOMUT 3", "KOMUT AÇIKLAMASI 3")
-    .addField("KOMUT 4", "KOMUT AÇIKLAMASI 4")
-    .addField("KOMUT 5", "KOMUT AÇIKLAMASI 5")
-    .addField("KOMUT 6", "KOMUT AÇIKLAMASI 6")
-    .setDescription("Bot Adı | Yardım komutları |Tüm hakları saklıdır (2018-2019)")
+       .addField("sunucular", "Botun bulunduğu sunucuları gösterir")
+    .addField("anime", "Anime resimleri atar")
+    .addField("botdavet", "Botu sunucunuza davet etmenize sağlar")
+    .addField("botsahipleri", "Botun sahibini gösterir")
+    .addField("davet", "Bot size bir davet linki oluşturur")
+    .addField("sunucubilgi", "Sunucu hakkında bilgi verir")
+    .addField("yetkililer", "Bot sv deki yetkilileri gösterir")
+    .addField("kullanıcıbilgim","Bot sizin hakkınızdaki bilgileri verir")
+    .setDescription("T R A S H BOT | Yardım komutları |Tüm hakları saklıdır (2019-2020)")
     
     if (!params[0]) {
         const commandNames = Array.from(client.commands.keys());

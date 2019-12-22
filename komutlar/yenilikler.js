@@ -5,11 +5,12 @@ exports.run = (client, message) => {
 message.channel.send(
 new Discord.RichEmbed()
 .setTitle("Trash Bot -- Yenilikler")
-.addField("Yeni komutlar:", "Küfürengelleme geldi ,Sunucukurma özelliği geldi, Unban özelliği geldi,otorol ayarlama geldi")
+.addField("Yeni komutlar:", "Yardım menüsü yenilendi")
 .setColor("RANDOM")
 .setTimestamp()
 .setFooter(message.author.username + "Tarafından kullanıldı.")
 )
+  message.delete(2000)
 };
 
 exports.conf = {
