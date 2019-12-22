@@ -91,7 +91,7 @@ module.exports.run = async (bot, message, args) => {
      message.guild.createChannel(`Bot-Komut`, "text").then(botkomutkanal => {
      message.guild.createChannel(`Müzik 1`, "voice").then(müzik1kanal => { 
      message.guild.createChannel(`Müzik 2`, "voice").then(müzik2kanal => {
-     message.guild.createChannel(`Meray Mefe Marda`, "voice").then(seskanal =>{   
+     message.guild.createChannel(`Meray Mefe Marda`, "voice").then(seskanal1 =>{   
      message.guild.createChannel(`Sesli Sohbet 1`, "voice").then(ses1kanal => {
      message.guild.createChannel(`Sesli Sohbet 2`, "voice").then(ses2kanal => {
      message.guild.createChannel(`Sesli Sohbet 3`, "voice").then(ses3kanal => {
@@ -268,7 +268,6 @@ module.exports.run = async (bot, message, args) => {
       botkomutkanal.setParent(sohbetkategori)
       müzik1kanal.setParent(SesKategori)
       müzik2kanal.setParent(SesKategori)
-      seskanal.setparent(SesKategori)
       ses1kanal.setParent(SesKategori)
       ses2kanal.setParent(SesKategori)
       ses3kanal.setParent(SesKategori)
@@ -301,7 +300,7 @@ exports.conf = {
   enabled: true,
   guildOnly: true,
   aliases: ['sunucukur'],
-  permLevel: 4
+  permLevel: 3
 };
  
 exports.help = {
