@@ -8,16 +8,16 @@ exports.run = function(client, message, args) {
       "⚠️ | Bu komutu kullanabilmek için `Yönetici` yetkisine sahip olmalısın!"
     );
   const msg = args.join(" ");
-  if (!msg) return message.channel.send("**Oylamam için bir şey gir!**");
+  if (!msg)
   message.delete();
   message.channel
     .send(
       new Discord.RichEmbed()
         .setTitle("Servisler")
-        .setDescription('Servislerimiz Glow Servisi 45 TL \n Minty Axe Servisi 120 TL \n Hesap Satışlar Clorusy ile konuşunuz\n')
+        .setDescription('Fortnite ta olan bütün değerli skinlerin ')
         .setColor("RANDOM")
         .setFooter(
-          message.author.tag + " tarafından başlatıldı..",
+          message.send ("Güncel Fiyatlar,Güncel Servisler"),
           message.author.avatarURL
         )
     )
