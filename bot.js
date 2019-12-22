@@ -13,6 +13,7 @@ const express = require('express');
 require('./util/eventLoader')(client);
 const path = require('path');
 const request = require('request');
+const Canvas = require("canvas");
 const snekfetch = require('snekfetch');
 const { GOOGLE_API_KEY } = require('./ayarlar.json')
 const YouTube = require('simple-youtube-api');

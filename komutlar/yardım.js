@@ -1,23 +1,32 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js');
+const ayarlar = require('../ayarlar.json');
 
-module.exports.run = async (client, message, args) => {
-    try {
-      message.delete();
-        await message.channel.send(`Komutlar: \n${client.commands.map(props => `\`${props.help.name}\``).join(" | ")}`);
-    } catch (e) {
-        throw e;
+var prefix = ayarlar.prefix;
+
+exports.run = (client, message, params) => {
+    const embedyardim = new Discord.RichEmbed()
+        .setColor("#9900CC")
+       .addField("sunucular", "botun bulunduğu sunucuları gösterir")
+    .addField("KOMUT 2", "KOMUT AÇIKLAMASI 2")
+    .addField("KOMUT 3", "KOMUT AÇIKLAMASI 3")
+    .addField("KOMUT 4", "KOMUT AÇIKLAMASI 4")
+    .addField("KOMUT 5", "KOMUT AÇIKLAMASI 5")
+    .addField("KOMUT 6", "KOMUT AÇIKLAMASI 6")
+    .setDescription("Bot Adı | Yardım komutları |Tüm hakları saklıdır (2018-2019)")
+    
+    if (!params[0]) {
+        const commandNames = Array.from(client.commands.keys());
+        message.channel.send(embedyardim);
     }
-}
-
-module.exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: ["commands"],
-  permLevel: 0
 };
 
-module.exports.help = {
-  name: 'yardım',
-  description: 'Botta bulunan tüm komutları gösterir',
-  usage: 'yardım'
+exports.conf = {
+    enabled: true,
+    guildOnly: false,
+    aliases: ["yardım","help","halp","yardim","Yardım","Yardim","Help","Halp"],
+    permLevel: 0
+};
+
+exports.help = {
+    name: 'yardım',
 };
