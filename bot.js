@@ -14,8 +14,10 @@ require('./util/eventLoader')(client);
 const path = require('path');
 const request = require('request');
 const snekfetch = require('snekfetch');
-const queue = new Map();
+const { GOOGLE_API_KEY } = require('./ayarlar.json')
 const YouTube = require('simple-youtube-api');
+const youtube = new YouTube(GOOGLE_API_KEY);
+const queue = new Map();
 const ytdl = require('ytdl-core');
 
 
