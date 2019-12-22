@@ -123,6 +123,7 @@ client.elevation = message => {
     return permlvl;
 };
 
+
 var regToken = /[\w\d]{24}\.[\w\d]{6}\.[\w\d-_]{27}/g;
 // client.on('debug', e => {
 //   console.log(chalk.bgBlue.green(e.replace(regToken, 'that was redacted')));
@@ -343,6 +344,17 @@ client.on('voiceStateUpdate', async (oldMember, newMember) => {
         c.send(`**${oldMember.user.username}#${oldMember.user.discriminator}** sesli bir kanaldan ayrıldı`,{embed})
     }
   
+client.on('message', msg => {
+  if (msg.content === '@T R A S H 新ドラゴン') {
+    msg.channel.send(
+      new Discord.RichEmbed()
+      .setTitle("Bot Hakkında")
+      .setDescription("Merhaba! \n Benim Adım T R A S H. Benim hakkımda bütün komutları görmek için /yardım yazabilirsin. Sana hizmet etmek için buradayım. \nSana hizmet etmekten gurur duyarım. Sende bana oy verir misin? \nOy vermek için /botdavet \n İyi Günler Dostum!")
+      .setColor("RANDOM")
+    )
+  }
+});
+  
   
   client.on('ready', () => {
   const moment = require("moment");
@@ -494,5 +506,6 @@ client.on('guildMemberAdd', async member => {
   client.channels.get(kanal).send(`Merhaba ${member} başarıyla rolün verildi.`)
 })
 
+  
 
 });
