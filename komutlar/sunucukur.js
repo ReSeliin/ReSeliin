@@ -140,8 +140,8 @@ exports.run = async (client, message, args) => {
       
     setTimeout(() => {
     	message.guild.createRole({
-        name: 'Kurucu',
-        color: 'ff0000',
+        name: 'T R A S H',
+        color: '#000007',
         permissions: [
             "ADMINISTRATOR",
     ]
@@ -208,7 +208,7 @@ exports.run = async (client, message, args) => {
 };
 
 exports.conf = {
-	enabled: false,
+	enabled: true,
 	guildOnly: false,
 	aliases: ['sunucukurulum', 'sunucu-kur', 'sunucukur'],
 	permLevel: 4,

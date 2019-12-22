@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 exports.run = (client, message, params) => {
+    message.delete();
     const xir = new Discord.RichEmbed()
     .setColor("#0aff00")
     .setAuthor(message.guild.name, message.guild.iconURL)

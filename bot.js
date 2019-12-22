@@ -421,4 +421,5 @@ client.on('guildMemberRemove', async member => {
   client.channels.get(kanal).send(`Merhaba ${member} başarıyla rolün verildi.`)
 })
   
+  
 });

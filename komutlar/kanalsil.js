@@ -12,7 +12,7 @@ exports.run = function(client, message) {
 };
 
 exports.conf = {
-  enabled: false,//True => Komut açık, False => Komut kapalı
+  enabled: true,//True => Komut açık, False => Komut kapalı
   guildOnly: false, //True => Sadece Servere Özel, False => Heryerde kullanılabilir
   aliases: [],//Komutun farklı kullanımları ÖR: !ping, !p
   permLevel: 3 //kimlerin kullanabileceğini  (bot.js dosyasında perm leveller yazıyor)
