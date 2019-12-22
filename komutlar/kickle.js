@@ -19,6 +19,7 @@ exports.run = async(client, message, args) => {
             .setTimestamp()
             .setDescription(`**Sunucudan Atıldı**\n**Kullanıcı:** ${kullanici.tag}\n**Yetkili:** ${message.author.tag}\n**Sebep:** ${sebep}`);
     logkanal.send({embed});
+  message.delete(2500)
     message.channel.send(`**${kullanici.tag}** sunucumuzdan atıldı Sebebi:\`${sebep}\``);
     var dmkullanici = new Discord.RichEmbed()
             .setAuthor(`${message.guild.name} adlı Sunucudan Atıldınız`,message.author.avatarURL || client.user.avatarURL)
@@ -38,7 +39,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'at',
+  name: 'kick',
   description: 'Kullanıcyı Sunucudan atarsınız',
   usage: 'at <kullanıcı> <sebep>'
 };
