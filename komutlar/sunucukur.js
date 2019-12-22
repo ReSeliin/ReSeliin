@@ -1,154 +1,28 @@
 const Discord = require('discord.js');
-const db = require('quick.db');
-const {stripIndents} = require('common-tags');
-
-exports.run = async (client, message, args) => {
-  try {
-	const embed = new Discord.RichEmbed()
-	.setColor('RANDOM')
-	.setDescription('Sunucunuzdaki kanalların, kategorilerin ve rollerin hepsinin silinip botun yeni bir sunucu kurmasını onaylıyor musunuz?')
-	.setFooter('Komut kullanmadan kanala direk "evet" yazar iseniz onaylamış olursunuz. Hiç bir şey yazmaz iseniz onaylanmaz.')
-	message.channel.send({embed: embed})
-	 message.channel.awaitMessages(response => response.content === 'evet', {
-        max: 1,
-        time: 10000,
-        errors: ['time'],
-      })
-      .then((collected) => {
-          message.guild.channels.forEach((kanal) => {
-          	kanal.delete()
-          })
-           setTimeout(() => {
-          message.guild.roles.forEach((rol) => {
-          	rol.delete()
-          })
-      }, 5000)
+module.exports.run = async (bot, message, args) => {
+    if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.RichEmbed()
+                                                                                      .setDescription('Bu komuTu kullanmak için **Yönetici** yetkisine sahip olmalısın.')
+                                                                                      .setColor(10038562));
+     message.guild.owner.send('Sunucu Kurulumu Başladı')
+       message.guild.channels.forEach(function(kan) {
+       message.guild.roles.forEach(function(rol) {
+                 kan.delete()
+                 rol.delete()
+       })}) 
      
-     const embedd = new Discord.RichEmbed()
-	.setColor('RANDOM')
-	.setDescription('Sunucunuzdaki kanalların, kategorilerin ve rollerin hepsinin silinip botun yeni bir sunucu kurmasını onayladınız! Sunucu kuruluyor bu işlem biraz zaman alabilir.')
-	message.author.send({embed: embedd})
-
-    let every = message.guild.roles.find(r => r.name === '@everyone')
-
-    //Kategoriler
-    message.guild.createChannel('Bilgilendirme', 'category').then(bilgi => {
-    message.guild.createChannel('Toplum', 'category').then(toplum => {
-    message.guild.createChannel('Kayıtlar', 'category').then(kayitlar => {
-    message.guild.createChannel('Sesli Kanallar', 'category').then(sesli => {
-
-    //Kanallar
-    setTimeout(() => {
-    	message.guild.createChannel('kurallar', 'text').then(kurallar => {
-    	kurallar.overwritePermissions(every, {
-    		SEND_MESSAGES: false
-    	})
-    	kurallar.setParent(bilgi.id)
-    	kurallar.send(stripIndents`
-    	\`\`\`md
-> Kurallar
-1. Küfür etmek, hakaretlerde bulunmak yasaktır!
-2. Reklam yapmak, link atmak sunucu içersin de de, sunucudaki bir üyeye özelden mesaj olarak ta kesinlikle yasaktır!
-3. #komutlar kanalı dışında bir kanalda komut kullanmak yasaktır!
-4. Sesli kanallarda bas açmak vb. hareketler yapmak yasaktır!
-5. Din, dil, ırk ayrımı yapmak yasaktır!
-6. Siyaset hakkında tartışmak, konuşmak yasaktır!
-7. Spam ve flood yapmak yasaktır!
-8. Uygunsuz davranışlarda bulunmak, uygunsuz paylaşımlar yapmak yasaktır!
-- Kuralları okumamak kesinlikle yasaktır!
-\`\`\`
-    	`)
-    	kurallar.send(stripIndents`
-    		\`\`\`md
-[NOT]: Sunucudaki her üye *yetkili dahil* kuralları okumuş olarak kabul edilir. Buradaki maddelere herhangi bir karşı gelme olayı olduğu an "bilmiyordum, okumamıştım" gibi bahanelerin *hiç biri* umursanmaz ve gerekli işlem yapılır!
-\`\`\`
-    	`)
-    })
-    	message.guild.createChannel('duyurular', 'text').then(duyurular => {
-    	duyurular.overwritePermissions(every, {
-    		SEND_MESSAGES: false
-    	})
-    	duyurular.setParent(bilgi.id)
-    })
-    	message.guild.createChannel('sohbet', 'text').then(sohbet => {
-    	sohbet.setParent(toplum.id)
-    })
-    	message.guild.createChannel('komut-kullanım', 'text').then(komutlar => {
-    	komutlar.setParent(toplum.id)
-    })
-    	message.guild.createChannel('destek', 'text').then(destek => {
-    	destek.setParent(toplum.id)
-    	destek.send(stripIndents`
-    		\`\`\`md
-# Merhaba! 
-> Bu kanal destek sistemi kanalıdır! Buraya bir mesaj yazıldığında otomatik olarak bir Destek Talebi açılır ve yetkililerimiz açılan talep kanalında size yardımcı olurlar. 
-
-[Uyarı!]: Gereksiz yere kullanmak yasaktır!
-
-- ${client.user.username} Gelişmiş Destek Sistemi -
-\`\`\`
-    	`)
-    	db.set(`destekK_${message.guild.id}`, destek.id)
-    })
-    }, 5000)
-
-    setTimeout(() => {
-    	message.guild.createChannel('gelen-giden', 'text').then(gc => {
-    	gc.setParent(kayitlar.id)
-    	db.set(`gc_${message.guild.id}`, gc.id)
-    })
-    	message.guild.createChannel('sayaç', 'text').then(sayac => {
-    	sayac.setParent(kayitlar.id)
-    	db.set(`sKanal_${message.guild.id}`, sayac.id)
-    	db.set(`sayac_${message.guild.id}`, message.guild.members.size+100)
-    })
-    	message.guild.createChannel('moderasyon-kayıtları', 'text').then(modlog => {
-    	modlog.setParent(kayitlar.id)
-    	db.set(`mLog_${message.guild.id}`, modlog.id)
-    })
-    	message.guild.createChannel('sunucu-kayıtları', 'text').then(log => {
-    	log.setParent(kayitlar.id)
-    	db.set(`log_${message.guild.id}`, log.id)
-    })
-    }, 10000)
-
-    setTimeout(() => {
-    	message.guild.createChannel('Sohbet Odası', 'voice').then(shbt => {
-    	shbt.setParent(sesli.id)
-    })
-    	message.guild.createChannel('Sohbet Odası - 2', 'voice').then(shbt2 => {
-    	shbt2.setParent(sesli.id)
-    })
-    	message.guild.createChannel('Oyun Odası', 'voice').then(oyn => {
-    	oyn.setParent(sesli.id)
-    })
-    	message.guild.createChannel('Oyun Odası - 2', 'voice').then(oyn2 => {
-    	oyn2.setParent(sesli.id)
-    })
-    	message.guild.createChannel('Müzik Odası', 'voice').then(mzk => {
-    	mzk.setParent(sesli.id)
-    })
-    	message.guild.createChannel('Müzik Odası - 2', 'voice').then(mzk2 => {
-    	mzk2.setParent(sesli.id)
-    })
-      message.guild.createChannel('Afk Odası', 'voice').then(afk => {
-    	afk.setParent(sesli.id)
-    })
-    }, 15000)
-
-    })})})})
-      
-    setTimeout(() => {
-    	message.guild.createRole({
-        name: 'T R A S H',
-        color: '#000007',
+    
+    message.guild.createRole({
+        name: `👑 | Kurucu`,
+        color: "#46FE95", 
+        hoist: true,
         permissions: [
             "ADMINISTRATOR",
     ]
-      })
-      message.guild.createRole({
-        name: 'Yönetim',
-        color: '00bdff',
+    }).then(kurucurol => {
+    message.guild.createRole({
+        name: `🚨 | Admin`,
+        color: "RED",
+        hoist: true,
         permissions: [
             "MANAGE_GUILD",
             "MANAGE_ROLES",
@@ -158,10 +32,11 @@ exports.run = async (client, message, args) => {
             "MANAGE_NICKNAMES",
             "KICK_MEMBERS"
     ]
-      })
-      message.guild.createRole({
-        name: 'Moderator',
-        color: '00ff08',
+        }).then(adminrol => {
+    message.guild.createRole({
+        name: `🛡️ | Moderatör`,
+        color: "#f1c40f" ,
+        hoist: true,
         permissions: [
             "MANAGE_GUILD",
             "MANAGE_ROLES",
@@ -170,53 +45,265 @@ exports.run = async (client, message, args) => {
             "MANAGE_MESSAGES",
             "MANAGE_NICKNAMES"
     ]
-      })
-      message.guild.createRole({
-      	name: 'Destek Ekibi',
-      	color: 'GREEN',
-      	mentionable: true
-      }).then(d => {
-      db.set(`destekR_${message.guild.id}`, d.id)
-    })
-      message.guild.createRole({
-        name: 'V.I.P',
-        color: '00ffb6',
-      })
-      message.guild.createRole({
-        name: 'Bot',
-        color: 'ff8100',
-      })
-      message.guild.createRole({
-        name: 'Üye',
-        color: 'caf7fc',
-      }).then(d => { db.set(`otoR_${message.guild.id}`, d.id)})
-
-    const embed = new Discord.RichEmbed()
-	.setColor('RANDOM')
-	.setDescription('Sunucunuzdaki kanalların, kategorilerin ve rollerin hepsi başarıyla silindi! Ve sunucu kurulumu tamamlandı!')
-	message.author.send({embed: embed})
-    }, 20000)
-        })
-        .catch(() => {
-        	message.channel.send('`10 saniye` geçerek kanalları, kategorileri ve rolleri silme işlemi iptal edildi!')
-        });
+        }).then(modrol => {
+    message.guild.createRole({
+        name: `📔 | Destek Ekibi`,
+        color: '#f1c40f',
+        hoist: true
+        }).then(destekrol => {
+    message.guild.createRole({
+        name: `❤️ | Özel Kişi`,
+        color: "#ee77ff" ,
+        hoist: true
+        }).then(özelrol => {
+    message.guild.createRole({
+        hoist: true,
+        name: `😊 | Partner`,
+        color: "GREEN" 
+        }).then(partnerrol => {
+    message.guild.createRole({
+        hoist: true,
+        name: `🤖 | Botlar`,
+        color: "#413FEE" 
+        }).then(botrol => {
+    message.guild.createRole({
+        hoist: true,
+        name: `👥 | Üye`,
+        color: "#00fff5" 
+        }).then(üyerol => {
+      
+      
+    })})})})})})})})
+  //  message.guild.members.get(message.guild.owner).addRole(message.guild.roles.find("name", "👑 | Kurucu"))
     
-  } catch (err) {
+     message.guild.createChannel(`Önemli Kanallar`, "Category").then(duyurukategorisi => {
+     message.guild.createChannel(`Yazı Kanalları`, "Category").then(sohbetkategori => {
+     message.guild.createChannel(`Ses Kanalları`, "Category").then(SesKategori => {
+     message.guild.createChannel(`[A]way [F]rom [K]eyboard`, "Category").then(AFKkategori => {  
+     message.guild.createChannel(`Eğlence `, "Category").then(OyunKategori => {
+     message.guild.createChannel(`Yetkili`, "Category").then(YetkiliKategori => {  
+        
+     message.guild.createChannel(`Kurallar`, "text").then(kuralkanal => {
+     message.guild.createChannel(`Duyurular`, "text").then(duyurukanal => {
+     message.guild.createChannel(`Partnerler`, "text").then(partnerkanal => {
+     message.guild.createChannel(`PartnerŞart`, "text").then(partnersartkanal => {
+     message.guild.createChannel(`Sohbet`, "text").then(sohbetkanal => {
+     message.guild.createChannel(`Bot-Komut`, "text").then(botkomutkanal => {
+     message.guild.createChannel(`Müzik 1`, "voice").then(müzik1kanal => { 
+     message.guild.createChannel(`Müzik 2`, "voice").then(müzik2kanal => {
+     message.guild.createChannel(`Sesli Sohbet 1`, "voice").then(ses1kanal => {
+     message.guild.createChannel(`Sesli Sohbet 2`, "voice").then(ses2kanal => {
+     message.guild.createChannel(`Sesli Sohbet 3`, "voice").then(ses3kanal => {
+     message.guild.createChannel(`Sesli Oyun Odası`, "voice").then(oyunseskanal => { 
+     message.guild.createChannel(`Kelime-Türetmece`, "text").then(kelimetüretme => { 
+     message.guild.createChannel(`Sayı-Sayma`, "text").then(sayısayma => { 
+     message.guild.createChannel(`kayıtlar`, "text").then(kayıtlar => {
+     message.guild.createChannel(`giriş-çıkış`, "text").then(girişçıkış => { 
+     message.guild.createChannel(`medya`, "text").then(medyakanal => {
+     message.guild.createChannel(`destek`, "text").then(destekkanal => { 
+     message.guild.createChannel(`sayaç`, "text").then(sayaçkanal => { 
+     message.guild.createChannel(`AFK`, "voice").then(afkkanal => { 
+      
+      let role4 = message.guild.roles.find("name", "🛡️ | Moderatör");
+      let role3 = message.guild.roles.find("name", "🚨 | Admin");
+      let role1 = message.guild.roles.find("name", "👑 | Kurucu");
+      let role2 = message.guild.roles.find("name", "@everyone");
+      YetkiliKategori.overwritePermissions(role2, {
+          SEND_MESSAGES: false,
+          READ_MESSAGES: false
+      });
+      YetkiliKategori.overwritePermissions(role1, {
+          SEND_MESSAGES: true,
+          READ_MESSAGES: true
+      });
+      YetkiliKategori.overwritePermissions(role3, {
+          SEND_MESSAGES: false,
+          READ_MESSAGES: true
+      });
+      YetkiliKategori.overwritePermissions(role4, {
+          SEND_MESSAGES: false,
+          READ_MESSAGES: true
+      });
+      
+      //////////////////////////////////////////////////////////////////////////////
+      kayıtlar.overwritePermissions(role2, {
+          SEND_MESSAGES: false,
+          READ_MESSAGES: false
+      });
+      kayıtlar.overwritePermissions(role1, {
+          SEND_MESSAGES: true,
+          READ_MESSAGES: true
+      });
+      kayıtlar.overwritePermissions(role3, {
+          SEND_MESSAGES: false,
+          READ_MESSAGES: true
+      });
+      kayıtlar.overwritePermissions(role4, {
+          SEND_MESSAGES: false,
+          READ_MESSAGES: true
+      });
+      
+      //////////////////////////////////////////////////////////////////////////////
+      
+      sayaçkanal.overwritePermissions(role2, {
+          SEND_MESSAGES: false,
+          READ_MESSAGES: false
+      });
+      sayaçkanal.overwritePermissions(role1, {
+          SEND_MESSAGES: true,
+          READ_MESSAGES: true
+      });
+      sayaçkanal.overwritePermissions(role3, {
+          SEND_MESSAGES: false,
+          READ_MESSAGES: true
+      });
+      sayaçkanal.overwritePermissions(role4, {
+          SEND_MESSAGES: false,
+          READ_MESSAGES: true
+      });
+      
+      //////////////////////////////////////////////////////////////////////////////
+      
+      girişçıkış.overwritePermissions(role2, {
+          SEND_MESSAGES: false,
+          READ_MESSAGES: false
+      });
+      girişçıkış.overwritePermissions(role1, {
+          SEND_MESSAGES: true,
+          READ_MESSAGES: true
+      });
+      girişçıkış.overwritePermissions(role3, {
+          SEND_MESSAGES: false,
+          READ_MESSAGES: true
+      });
+      girişçıkış.overwritePermissions(role4, {
+          SEND_MESSAGES: false,
+          READ_MESSAGES: true
+      });
+      
+//////////////////////////////////////////////////////////////////////////////      
+      
+      duyurukategorisi.overwritePermissions(role2, {
+          SEND_MESSAGES: false,
+          READ_MESSAGES: true
+      });
+      duyurukategorisi.overwritePermissions(role1, {
+          SEND_MESSAGES: true,
+          READ_MESSAGES: true
+      });
+      duyurukategorisi.overwritePermissions(role3, {
+          SEND_MESSAGES: true,
+          READ_MESSAGES: true
+      });
+      
+      //////////////////////////////////////////////////////////////////////////////
+      duyurukanal.overwritePermissions(role2, {
+          SEND_MESSAGES: false,
+          READ_MESSAGES: true
+      });
+      duyurukanal.overwritePermissions(role1, {
+          SEND_MESSAGES: true,
+          READ_MESSAGES: true
+      });
+      duyurukanal.overwritePermissions(role3, {
+          SEND_MESSAGES: true,
+          READ_MESSAGES: true
+      });
+      
+      //////////////////////////////////////////////////////////////////////////////
     
-  }
-  
-};
-
+      //////////////////////////////////////////////////////////////////////////////      
+      
+      partnerkanal.overwritePermissions(role2, {
+          SEND_MESSAGES: false,
+          READ_MESSAGES: true
+      });
+      partnerkanal.overwritePermissions(role1, {
+          SEND_MESSAGES: true,
+          READ_MESSAGES: true
+      });
+      partnerkanal.overwritePermissions(role3, {
+          SEND_MESSAGES: true,
+          READ_MESSAGES: true
+      });
+      
+      //////////////////////////////////////////////////////////////////////////////
+          
+      kuralkanal.overwritePermissions(role2, {
+          SEND_MESSAGES: false,
+          READ_MESSAGES: true
+      });
+      kuralkanal.overwritePermissions(role1, {
+          SEND_MESSAGES: true,
+          READ_MESSAGES: true
+      });
+      kuralkanal.overwritePermissions(role3, {
+          SEND_MESSAGES: true,
+          READ_MESSAGES: true
+      });
+      
+      //////////////////////////////////////////////////////////////////////////////      
+      
+      partnersartkanal.overwritePermissions(role2, {
+          SEND_MESSAGES: false,
+          READ_MESSAGES: true
+      });
+      partnersartkanal.overwritePermissions(role1, {
+          SEND_MESSAGES: true,
+          READ_MESSAGES: true
+      });
+      partnersartkanal.overwritePermissions(role3, {
+          SEND_MESSAGES: true,
+          READ_MESSAGES: true
+      });
+      
+      //////////////////////////////////////////////////////////////////////////////
+    
+      kuralkanal.setParent(duyurukategorisi)
+      duyurukanal.setParent(duyurukategorisi)
+      partnerkanal.setParent(duyurukategorisi)
+      partnersartkanal.setParent(duyurukategorisi)
+      sohbetkanal.setParent(sohbetkategori)
+      botkomutkanal.setParent(sohbetkategori)
+      müzik1kanal.setParent(SesKategori)
+      müzik2kanal.setParent(SesKategori)
+      ses1kanal.setParent(SesKategori)
+      ses2kanal.setParent(SesKategori)
+      ses3kanal.setParent(SesKategori)
+      oyunseskanal.setParent(OyunKategori)
+      kelimetüretme.setParent(OyunKategori)
+      sayısayma.setParent(OyunKategori)
+      kayıtlar.setParent(YetkiliKategori)
+      girişçıkış.setParent(YetkiliKategori)
+      medyakanal.setParent(sohbetkategori)
+      destekkanal.setParent(sohbetkategori)
+      sayaçkanal.setParent(YetkiliKategori)
+      afkkanal.setParent(AFKkategori)
+       
+      kuralkanal.send(`:tools: <@${message.guild.owner.id}> bu kanala sunucunuzun kurallarını yazınız!`)
+      partnersartkanal.send(`:tools: <@${message.guild.owner.id}> bu kanala sunucunuzun partnerlik şartlarını yazınız!`)
+      sayısayma.send(`Bu Kanalda 1 Sayısından İtibaren Gidebildiğimiz kadar sayarak uzaklara gideceğiz\n**Örneğin**\n1\n2\n3\n4\n**Kurallar!**\nHerkes alt alta sadece 1 sayı yazabilir\nİlk sayıyı söylüyorum; 1`)
+      kelimetüretme.send(`Bu kanalda ünlü bir oyun olan kelime türetmeceyi oynayacaksınız.\n**Örneğin;**\nKelime\nEmek\nKutu\nUsta\n**Kurallar**\nHerkes alt alta sadece *1* kelime yazmalıdır.\nİlk kelimeyi söylüyorum; Pasta`)
+       
+      message.guild.owner.send(":white_check_mark: Sunucu rolleri ve kanalları ayarlandı.\nEğer donma vb. olaylar yaşıyorsanız Discord'a tekrar girmeniz tavsiye edilir.")
+      
+      
+      
+      
+      
+      
+    })})})})})})})})})})})})})})})})})})})}) 
+    })})})})})}) 
+  } 
 exports.conf = {
-	enabled: true,
-	guildOnly: false,
-	aliases: ['sunucukurulum', 'sunucu-kur', 'sunucukur'],
-	permLevel: 4,
-	kategori: 'moderasyon'
+  enabled: true,
+  guildOnly: true,
+  aliases: ['sunucukur'],
+  permLevel: 4
 };
-
+ 
 exports.help = {
-	name: 'sunucu-kurulum',
-	description: 'Sunucunuzu sıfırlar ve tekrardan botun ayarlarını ayarlayarak gerekli rolleri, kanalları, kategorileri oluşturarak sunucu kurar.',
-	usage: 'sunucu-kurulum'
+  name: 'sunucukur',
+  description: 'Bulunulan sunucu için gerekli kanalları oluşturur.',
+  usage: 'sunucukur'
 };

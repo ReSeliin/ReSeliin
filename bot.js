@@ -422,4 +422,35 @@ client.on('guildMemberRemove', async member => {
 })
   
   
+  const serverStats = {
+  guildID: '649650652016017435',
+  totalUsersID: '658101102834614312',
+  memberCountID: '658101380426235952',
+  botCountID: '658101514006691859'
+
+};
+
+
+client.on('guildMemberAdd', member => {
+
+if (member.guild.id !== serverStats.guildID) return;
+
+client.channels.get(serverStats.totalUsersID).setName(`Toplam Kullanıcı : ${member.guild.memberCount} `);
+client.channels.get(serverStats.memberCountID).setName(`Üye Sayısı : ${member.guild.members.filter(m => !m.user.bot).size}`);
+client.channels.get(serverStats.botCountID).setName(`Bot Sayısı : ${member.guild.members.filter(m => m.user.bot).size}`);
+
+});
+
+client.on('guildMemberRemove', member => {
+
+if (member.guild.id !== serverStats.guildID) return;
+
+client.channels.get(serverStats.totalUsersID).setName(`Toplam Kullanıcı : ${member.guild.memberCount} `);
+client.channels.get(serverStats.memberCountID).setName(`Üye Sayısı : ${member.guild.members.filter(m => !m.user.bot).size}`);
+client.channels.get(serverStats.botCountID).setName(`Bot Sayısı : ${member.guild.members.filter(m => m.user.bot).size}`);
+
+
+});
+  
+  
 });
