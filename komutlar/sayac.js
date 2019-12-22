@@ -13,6 +13,7 @@ exports.run = async (client, message, args) => {
   db.set(`sayacK_${message.guild.id}`, kanal.id);
   
   message.channel.send(`Sayaç **${sayi}** Kanalı ${kanal} olarak ayarlandı!`)
+  message.delete(5000)
 }
 exports.conf = {
   enabled: true,
