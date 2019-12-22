@@ -1,13 +1,13 @@
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json')
-const sahip = ayarlar.sahip;
+const sahip2 = ayarlar.sahip2;
 exports.run = function(client, message) {
 
-const sahip = ayarlar.sahip
+const sahip2 = ayarlar.sahip2
 message.channel.send(
 new Discord.RichEmbed()
-  .setAuthor('Sahiplerim')
-  .setDescription(sahip)
+  .setAuthor('Yapımcım Ve Sahibim')
+  .setDescription(sahip2)
   .setColor('GREEN')
   .setTimestamp()
 
