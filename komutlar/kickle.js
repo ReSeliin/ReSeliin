@@ -6,8 +6,8 @@ exports.run = async(client, message, args) => {
     let sebep = args.slice(1).join(" ");
     if(!sebep){ return message.channel.send(`Örnek Kullanım: \`${ayarlar.prefix}at <kullanıcı> <sebep>\``)}
     let kullanici = message.mentions.users.first();
-    let logkanal = message.guild.channels.find("name", "denetim")
-    if(!logkanal) { return message.channel.send("\`denetim\` adında kanal bulamıyorum lütfen \`denetim\` adında kanal açın")}
+    let logkanal = message.guild.channels.find("name", "mod-log")
+    if(!logkanal) { return message.channel.send("\`mod-log\` adında kanal bulamıyorum lütfen \`mod-log\` adında kanal açın")}
     let Kullanici = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if (!Kullanici) return message.channel.send("Kullanıcı Bulunamadı!");
     let kReason = args.join(" ").slice(22);

@@ -5,7 +5,7 @@ exports.run = (client, message) => {
 message.channel.send(
 new Discord.RichEmbed()
 .setTitle("Trash Bot -- Yenilikler")
-.addField("Yeni komutlar:", "minecraft, youtubearama")
+.addField("Yeni komutlar:", "Küfürengelleme geldi ,Sunucukurma özelliği geldi, Unban özelliği geldi,otorol ayarlama geldi")
 .setColor("RANDOM")
 .setTimestamp()
 .setFooter(message.author.username + "Tarafından kullanıldı.")

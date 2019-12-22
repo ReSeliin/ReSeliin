@@ -482,15 +482,17 @@ client.channels.get(serverStats.botCountID).setName(`Bot Sayısı : ${member.gui
 
 });
 //Kullanıcı sunucudan ayrıldığında ayarlanan kanala mesaj gönderelim.
-client.on("guildMemberAdd", async (member) => {
-      let autorole =  JSON.parse(fs.readFileSync("./autorole.json", "utf8"));
-      let role = autorole[member.guild.id].sayi
 
-      member.addRole(role)
-
-
-
-
-});
+client.on('guildMemberAdd', async member => {
+  let rol = await db.fetch(`otoR_${member.guild.id}`)
+  let kanal = await db.fetch(`otoK_${member.guild.id}`)
   
+  if (!rol) return
+  if (!kanal) return
+  
+  member.addRole(member.guild.roles.get(rol))
+  client.channels.get(kanal).send(`Merhaba ${member} başarıyla rolün verildi.`)
+})
+
+
 });
