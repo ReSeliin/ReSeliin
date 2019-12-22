@@ -20,7 +20,6 @@ exports.run = async (client, message, args) => {
             console.log(err)
         })
         const embed = new Discord.RichEmbed()
-            message.delete(5000)
             .setDescription(`Otorol Başarıyla Sıfırlandı`)
             .setColor("RANDOM")
             .setTimestamp()

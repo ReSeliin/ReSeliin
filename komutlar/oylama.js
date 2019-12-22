@@ -13,7 +13,7 @@ exports.run = function(client, message, args) {
   message.channel
     .send(
       new Discord.RichEmbed()
-        .setTitle("Mocuk Adamlar New Discord")
+        .setTitle("Mocuk Team Kurallar")
         .setDescription(msg)
         .setColor("RANDOM")
         .setFooter(
