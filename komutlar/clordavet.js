@@ -14,10 +14,10 @@ exports.run = function(client, message, args) {
     .send(
       new Discord.RichEmbed()
         .setTitle("Servisler")
-        .setDescription('Fortnite ta olan bütün değerli skinlerin ')
+        .setDescription('Fortnite ta olan bütün değerli skinlerin ucuz ve hesapların ucuz olduğu adres \n Clorusy Marketim Discord Adresi : \n https://discord.gg/z8CgXEM ')
         .setColor("RANDOM")
         .setFooter(
-          message.send ("Güncel Fiyatlar,Güncel Servisler"),
+          message.author.tag + ("Güncel Fiyatlar,Güncel Servisler"),
           message.author.avatarURL
         )
     )
@@ -31,12 +31,12 @@ exports.run = function(client, message, args) {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["oyla"],
+  aliases: ["clordavet"],
   permLevel: 3
 };
 exports.help = {
-  name: "ürünler",
+  name: "clordavet",
   description: "İstediğiniz şeyi oylar",
   category: "kullanıcı",
-  usage: "ürünler [İçerik]"
+  usage: "clordavet"
 };

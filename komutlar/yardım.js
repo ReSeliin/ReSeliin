@@ -14,6 +14,7 @@ exports.run = (client, message, params) => {
     .addField("sunucubilgi", "Sunucu hakkında bilgi verir")
     .addField("yetkililer", "Bot sv deki yetkilileri gösterir")
     .addField("kullanıcıbilgim","Bot sizin hakkınızdaki bilgileri verir")
+    .addField("clordavet","Sponsorumuz Olan Fortnite skin ve hesapları satan marketin davet linkini verir")
     .setDescription("T R A S H BOT | Yardım komutları |Tüm hakları saklıdır (2019-2020)")
     
     if (!params[0]) {
