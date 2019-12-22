@@ -5,11 +5,11 @@ var sunucuyaözelayarlarOtorol = JSON.parse(fs.readFileSync("./autorole.json", "
 
 exports.run = async (bot, message, args) =>
 {
-  message.delete();
       let profil = JSON.parse(fs.readFileSync("./autorole.json", "utf8"));
   var mentionedChannel = message.mentions.channels.first();
   if (!mentionedChannel && args[0] !== "sıfırla") return message.channel.send("Ayarlamam İçin Bir Rol Etiketlemelisin. \nRolü Etiketleyemiyorsan **Rolün Etiketleme Seçeneğini Aktif Etmeyi Unutma** \nÖrnek Kullanım : x+otorol @rol #kanal \nÖnemli Not!!: Oto Rol Vermem İçin Verilecek Rolün Üstünde Bir Rolüm Olmalı Yoksa Rolü Veremem :)");
   if (message.guild.member(message.author.id).hasPermission(0x8))
+    message.delete(5000)
     
     {
       var mentionedRole = message.mentions.roles.first();
@@ -37,8 +37,8 @@ exports.run = async (bot, message, args) =>
         .setDescription(`:white_check_mark:  Otorol başarıyla ${args[0]} olarak ayarlandı! \n: :white_check_mark:  Otorol Mesaj kanalı başarıyla ${mentionedChannel} olarak ayarlandı`)
         .setColor("RANDOM")
         .setTimestamp()
+    message.delete(5000)
     message.channel.send({embed})
-    message.delete();
   }
 
 }
