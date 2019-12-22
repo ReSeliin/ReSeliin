@@ -371,7 +371,7 @@ botdurum.send(botistatistik);
   if (ke === "kapali" || ke === undefined || ke === null){
     return;
   } else if (ke === "acik") {
-    let küfür = ["küfür1", "küfür2", "küfür3", "küfür4", "küfür5", "küfür6" ] //bu yolla istediğiniz gibi uzatabilirsiniz.
+    let küfür = ["ibne", "orospu çocu", "oç", "ananı sikeyim", "amk", "aq", ] //bu yolla istediğiniz gibi uzatabilirsiniz.
     if (küfür.some(word => message.content.includes(word))){
         if (!message.member.hasPermission("BAN_MEMBERS")) {
         message.delete();
