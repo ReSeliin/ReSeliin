@@ -84,6 +84,7 @@ module.exports.run = async (bot, message, args) => {
      message.guild.createChannel(`Yetkili`, "Category").then(YetkiliKategori => {  
         
      message.guild.createChannel(`Kurallar`, "text").then(kuralkanal => {
+     message.guild.crateChannel('🎅Meray Mefe Marda🎅',"voice").then(kuralkanal => {  
      message.guild.createChannel(`Duyurular`, "text").then(duyurukanal => {
      message.guild.createChannel(`Partnerler`, "text").then(partnerkanal => {
      message.guild.createChannel(`PartnerŞart`, "text").then(partnersartkanal => {
@@ -279,6 +280,7 @@ module.exports.run = async (bot, message, args) => {
       destekkanal.setParent(sohbetkategori)
       sayaçkanal.setParent(YetkiliKategori)
       afkkanal.setParent(AFKkategori)
+       
        
       kuralkanal.send(`:tools: <@${message.guild.owner.id}> bu kanala sunucunuzun kurallarını yazınız!`)
       partnersartkanal.send(`:tools: <@${message.guild.owner.id}> bu kanala sunucunuzun partnerlik şartlarını yazınız!`)

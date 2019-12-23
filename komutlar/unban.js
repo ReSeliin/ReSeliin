@@ -22,7 +22,7 @@ exports.run = (client, message, args) => {
   message.guild.unban(user);
 
   const embed = new Discord.RichEmbed()
-    .setColor(0x00AE86)
+    .setColor('#080000')
     .setTimestamp()
     .addField('Eylem:', 'Ban kaldırma')
     .addField('Kullanıcı:', `${user.username} ${user.discriminator} (${user.id})`)

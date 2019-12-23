@@ -9,8 +9,8 @@ exports.run = (client, message, args) => {
   if (reason.length < 1) return message.reply('Ne Kazandirirsiniz,Istediniz Yetki,Kac Saat Aktif Olacaginiz,Adiniz,Yasiniz ve Kendinizi Etiketleyin.');
   if (message.mentions.users.size < 1) return message.reply('Isminizi Etiketleyin.').catch(console.error);
   const embed = new Discord.RichEmbed()
-    .setColor(0xD97634)
-    .setThumbnail("https://i.hizliresim.com/mJ20o2.jpg")
+    .setColor('#080000')
+    .setThumbnail('https://i.ibb.co/0jj0bBK/77aa916d484d3138bea71c180dd3d683.jpg')
     .setTimestamp()
     .addField('Durum:', 'Bekleniyor')
     .addField('Gonderen Kisi:', `${user.username}#${user.discriminator} (${user.id})`)
