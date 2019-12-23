@@ -16,7 +16,7 @@ exports.run = function(client, message, args) {
     .setTitle('**Uyarıldın :warning:**')
     .setDescription('**'+message.guild.name+' ** Adlı sunucudan ** '+reason+'** Sebebi ile uyarıldın!')
     .setFooter("Kurallara uymazsan uyarılırsın")
-    .setColor('RED')
+    .setColor("#080000")
   )
 };
 

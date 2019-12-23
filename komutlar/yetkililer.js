@@ -19,7 +19,7 @@ for(var i = 0; i < message.guild.members.size; i++) {
 }
 
   var embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
+  .setColor("#080000")
   .setAuthor(`${message.guild.name} - Sunucu Yöneticileri`)
   .setDescription(str.replace(message.guild.owner.user.tag, `**${message.guild.owner.user.tag} - [Sunucu Sahibi]**`))
   .setThumbnail(message.guild.iconURL)
