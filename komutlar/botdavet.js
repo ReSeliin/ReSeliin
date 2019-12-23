@@ -5,7 +5,7 @@ exports.run = function(client, message) {
 message.channel.send(
 new Discord.RichEmbed()
 .setDescription(`[💜Sunucuna Eklemek İçin Tıkla💜](https://discordapp.com/oauth2/authorize?client_id=644267400749121536&scope=bot&permissions=2146958463) \n[💜Oy Vermek İstiyorsan Tıkla💜](https://top.gg/bot/628183832050532367/vote)`)
-.setColor("RANDOM")
+.setColor("#080000")
 )};
 
 exports.conf = {

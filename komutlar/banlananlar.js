@@ -9,7 +9,7 @@ exports.run = (bot, message, args) =>
      {
        const embed = new Discord.RichEmbed()
        .setTitle(`:no_entry_sign: Banlanan Kullanıcı bulunamadı :no_entry_sign:`)
-       .setColor("RED");
+       .setColor("#080000");
        message.channel.send({embed});
        message.delete()
      }
@@ -17,7 +17,7 @@ exports.run = (bot, message, args) =>
      {
        const embed = new Discord.RichEmbed()
        .setTitle(":no_entry_sign: Banlistesi | Sunucudan Banlananlar")
-       .setColor("RED");
+       .setColor("#080000");
        for(collectionobject of collection)
        {
            var user = collectionobject[1];

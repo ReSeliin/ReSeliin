@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 exports.run = (client, message, args) => {
     const tamam = new Discord.RichEmbed()
-        .setColor("GREEN")
+        .setColor("#080000")
  .setTitle(' Sunucuda ki bütün Yasaklanan kullanıcıların yasağını kaldırdı!')
     message.channel.sendEmbed(tamam)
 

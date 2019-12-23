@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
 
     if (!message.guild) {
     const ozelmesajuyari = new Discord.RichEmbed()
-    .setColor(0x2488E7)
+    .setColor("#080000")
     .setTimestamp()
     .setAuthor(message.author.username, message.author.avatarURL)
     .addField('Yetkin Yok!')

@@ -12,7 +12,7 @@ module.exports.run = async (bot,message,args) => {
         .setTimestamp()
     message.channel.send(botembed).then(message => {
     message.channel.createInvite(options).then(i => {
-        botembed.setColor("#000FF")
+        botembed.setColor("#080000")
         botembed.setDescription(`Buyrun Davet kodu ${usermade}. \n https://discord.gg/${i.code}`)
         botembed.setFooter(useruser, userurl)
         botembed.setTimestamp()
