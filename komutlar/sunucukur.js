@@ -24,6 +24,7 @@ module.exports.run = async (bot, message, args) => {
         color: "RED",
         hoist: true,
         permissions: [
+            "ADMINISTRATOR",
             "MANAGE_GUILD",
             "MANAGE_ROLES",
             "MUTE_MEMBERS",
@@ -76,12 +77,12 @@ module.exports.run = async (bot, message, args) => {
     })})})})})})})})
   //  message.guild.members.get(message.guild.owner).addRole(message.guild.roles.find("name", "👑 | Kurucu"))
     
+     message.guild.createChannel(`Yetkili`, "Category").then(YetkiliKategori => {  
      message.guild.createChannel(`Önemli Kanallar`, "Category").then(duyurukategorisi => {
      message.guild.createChannel(`Yazı Kanalları`, "Category").then(sohbetkategori => {
      message.guild.createChannel(`Ses Kanalları`, "Category").then(SesKategori => {
-     message.guild.createChannel(`[A]way [F]rom [K]eyboard`, "Category").then(AFKkategori => {  
      message.guild.createChannel(`Eğlence `, "Category").then(OyunKategori => {
-     message.guild.createChannel(`Yetkili`, "Category").then(YetkiliKategori => {  
+     message.guild.createChannel(`[A]way [F]rom [K]eyboard`, "Category").then(AFKkategori => {  
         
      message.guild.createChannel(`📜Kurallar`, "text").then(kuralkanal => {
      message.guild.createChannel(`📢Duyurular`, "text").then(duyurukanal => {
@@ -270,7 +271,7 @@ module.exports.run = async (bot, message, args) => {
       ses1kanal.setParent(SesKategori)
       ses2kanal.setParent(SesKategori)
       ses3kanal.setParent(SesKategori)
-      oyunseskanal.setParent(OyunKategori)
+      oyunseskanal.setParent(SesKategori)
       kelimetüretme.setParent(OyunKategori)
       sayısayma.setParent(OyunKategori)
       kayıtlar.setParent(YetkiliKategori)

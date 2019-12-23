@@ -9,6 +9,6 @@ var prefix = ayarlar.prefix;
 module.exports = client => {
   console.log(`BOT: ${client.user.username} ismi ile giriş yapıldı!`);
   client.user.setStatus("online");
-  client.user.setGame(`1 Saatlik Bakım !!!`);
+  client.user.setGame(`🔥Clor Marketim ---> discord.gg/XVBHrzC🔥`);
   console.log(`BOT: Şu an ` + client.channels.size + ` adet kanala, ` + client.guilds.size + ` adet sunucuya ve ` + client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString() + ` kullanıcıya hizmet veriliyor!`);
 };
