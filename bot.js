@@ -38,6 +38,13 @@ const log = message => {
     console.log(`${message}`);
 };
 
+client.on('voiceStateUpdate', (old, now) => {
+  const channel = client.channels.get('658328758519857173');
+  const currentSize = channel.guild.members.filter(m => m.voiceChannel).size;
+  const size = channel.name.match(/\[\s(\d+)\s\]/);
+  if (!size) return channel.setName(`Sesli ${currentSize}`);
+  if (currentSize !== size) channel.setName(`Sesli ${currentSize}`);
+});
 
 ///////////////////////////////////////////////////////////
 
