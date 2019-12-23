@@ -18,6 +18,7 @@ const snekfetch = require('snekfetch');
 const { GOOGLE_API_KEY } = require('./ayarlar.json')
 const YouTube = require('simple-youtube-api');
 const youtube = new YouTube(GOOGLE_API_KEY);
+const fortnite = require('fortnitetracker-7days-stats');
 const queue = new Map();
 const ytdl = require('ytdl-core');
 
