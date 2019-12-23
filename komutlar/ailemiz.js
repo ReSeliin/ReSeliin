@@ -6,6 +6,7 @@ exports.run = (bot, message) => {
     const guilds = guildArray.splice(0,25);
     for (const guild of guilds) {
       embed.addField(`**${guild.name}** - ÜYE SAYISI : **${guild.memberCount}**`);
+      embed.addField(`**__________ __________**`);
       embed.setColor("#080000")
       embed.setTitle('İçinde Olduğum Yerler')
       embed.setDescription(`İçinde bulunduğum bu kadar **${bot.guilds.size}** sunucu var !`)

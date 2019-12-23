@@ -23,7 +23,7 @@ exports.run = async(client, message, args) => {
     message.channel.send(`**${kullanici.tag}** sunucumuzdan atıldı Sebebi:\`${sebep}\``);
     var dmkullanici = new Discord.RichEmbed()
             .setAuthor(`${message.guild.name} adlı Sunucudan Atıldınız`,message.author.avatarURL || client.user.avatarURL)
-            .setColor("RED")
+            .setColor("#080000")
             .addField(`Atan Yetkili`,message.author.tag)
             .addField(`Atılma Sebebiniz`,sebep)
             .setThumbnail(message.guild.avatarURL || client.user.avatarURL)

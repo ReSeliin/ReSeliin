@@ -3,7 +3,7 @@ exports.run = (client, message, args) => {
 
   if (!message.guild) {
   const ozelmesajuyari = new Discord.RichEmbed()
-  .setColor(0xFF0000)
+  .setColor("#080000")
   .setTimestamp()
   .setAuthor(message.author.username, message.author.avatarURL)
   .addField(':warning: **Uyarı** :warning:', '`rol-ver` **adlı komutu özel mesajlarda kullanamazsın.**')

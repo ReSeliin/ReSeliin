@@ -5,7 +5,7 @@ var prefix = ayarlar.prefix;
 
 exports.run = (client, message, params) => {
     const embedyardim = new Discord.RichEmbed()
-        .setColor("GREEN")
+        .setColor("#080000")
        .addField("Anlık Ping", `${client.ping} **ms**`)
         .addField("Sistem Bilgileri", `**İşletim Sistemi**: Windows/Linux/MAC `)
     if (!params[0]) {

@@ -7,7 +7,7 @@ module.exports.run = async (bot,message,args) => {
     const usermade = message.author;
     const userurl = message.author.avatarURL;
     let botembed = new Discord.RichEmbed()
-        .setColor("#000FF")
+        .setColor("#080000")
         .setDescription(`:information_source:  Oluşturuluyor......`)
         .setTimestamp()
     message.channel.send(botembed).then(message => {

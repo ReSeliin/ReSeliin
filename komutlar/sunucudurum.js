@@ -2,8 +2,8 @@ const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 exports.run = (client, message, params) => {
     message.delete();
-    const xir = new Discord.RichEmbed()
-    .setColor("#0aff00")
+    const reseliin = new Discord.RichEmbed()
+    .setColor("#080000")
     .setAuthor(message.guild.name, message.guild.iconURL)
     .addField('Sunucu Adı:', message.guild.name)
     .addField('Sunucu ID:', message.guild.id)
@@ -13,7 +13,7 @@ exports.run = (client, message, params) => {
     .addField('Sahibi:', message.guild.owner)
     .addField('Oluşturulma tarihi:', message.guild.createdAt)
     .setThumbnail(message.guild.iconURL);
-    return message.channel.sendEmbed(xir);
+    return message.channel.sendEmbed(reseliin);
 };
 
 exports.conf = {
