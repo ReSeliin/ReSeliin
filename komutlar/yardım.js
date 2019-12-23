@@ -5,7 +5,7 @@ var prefix = ayarlar.prefix;
 
 exports.run = (client, message, params) => {
     const embedyardim = new Discord.RichEmbed()
-        .setColor("#9900CC")
+        .setColor("#080000")
     .setThumbnail('https://i.ibb.co/0jj0bBK/77aa916d484d3138bea71c180dd3d683.jpg')
     .addField("sunucular", "Botun bulunduğu sunucuları gösterir")
     .addField("anime", "Anime resimleri atar")

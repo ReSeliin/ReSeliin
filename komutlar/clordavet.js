@@ -15,7 +15,7 @@ exports.run = function(client, message, args) {
       new Discord.RichEmbed()
         .setTitle("Clor Marketim")
         .setDescription('Fortnite ta olan bütün değerli skinlerin ucuz ve hesapların ucuz olduğu adres \n Clorusy Marketim Discord Adresi : \n https://discord.gg/z8CgXEM ')
-        .setColor("RANDOM")
+        .setColor("#080000")
         .setFooter(
           message.author.tag + ("Güncel Fiyatlar,Güncel Servisler"),
           message.author.avatarURL

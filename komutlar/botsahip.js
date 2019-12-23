@@ -8,7 +8,7 @@ message.channel.send(
 new Discord.RichEmbed()
   .setAuthor('Yapımcım Ve Sahibim')
   .setDescription(sahip2)
-  .setColor('GREEN')
+  .setColor('#080000')
   .setTimestamp()
 
 )

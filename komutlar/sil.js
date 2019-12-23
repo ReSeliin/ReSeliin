@@ -10,7 +10,7 @@ message.channel.bulkDelete(args[0]).then(() => {
     limit: messagecount
   }).then(messages => message.channel.bulkDelete(messages));
     const sohbetsilindi = new Discord.RichEmbed()
-    .setColor('RANDOM')
+    .setColor('#080000')
     .setTimestamp()
     .addField('🌍 Eylem:', 'Sohbet silme')
     .addField('👨 Yetkili: ', message.author.username)

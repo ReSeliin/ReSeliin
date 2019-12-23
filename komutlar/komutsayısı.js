@@ -5,9 +5,9 @@ exports.run = async (client, message, args, level) => {
   try {
     
     const embed = new Discord.RichEmbed()
-    .setTitle(`${message.guild.name} - Komut Sayısı`)
+    .setTitle(`T R A S H BOT - Komut Sayısı`)
     .setDescription('**\nToplam**  **' + client.commands.size + '** **Komut Vardır!**' + '\nBu Komutların sadece 9 u userler içindir')
-    .setColor("#ff0000")
+    .setColor("#080000")
     .setThumbnail('https://i.ibb.co/0jj0bBK/77aa916d484d3138bea71c180dd3d683.jpg')
     .setTimestamp()
     .setFooter(message.author.username , message.author.avatarURL)
