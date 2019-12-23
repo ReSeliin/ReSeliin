@@ -63,8 +63,8 @@ message.channel.send(`Bu sunucu için Sunucu İstatistikleri devre dışı bıra
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["sunucui"],
-  permLevel: 0
+  aliases: ["sunucupanel"],
+  permLevel: 3
 };
 
 exports.help = {

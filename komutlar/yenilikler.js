@@ -5,8 +5,8 @@ exports.run = (client, message) => {
 message.channel.send(
 new Discord.RichEmbed()
 .setTitle("Trash Bot -- Yenilikler")
-.addField("Yeni komutlar:", "/komutlar geldi \n Bu menü sayesinde botta kaçtane komut olduğunu ve kaçtanesinin kullanabileceğinizi gösteriyor !!!")
-.setColor("RANDOM")
+.addField("Yeni komutlar:", "/banlananlar : \n Bu komut sayesinde sunucunuzdan banladığınız kişilerin adı ve id si ile görüceksiniz İyi oyunlar...")  
+.setColor("#080000")
 .setTimestamp()
 .setFooter(message.author.username + "Tarafından kullanıldı.")
 )

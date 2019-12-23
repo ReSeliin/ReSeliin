@@ -13,9 +13,9 @@ exports.run = function(client, message, args) {
   message.channel
     .send(
       new Discord.RichEmbed()
-        .setTitle("Özel Reklam")
+        .setTitle("Oylama")
         .setDescription(msg)
-        .setColor("RANDOM")
+        .setColor("#080000")
         .setFooter(
           message.author.tag + " tarafından başlatıldı..",
           message.author.avatarURL
@@ -26,6 +26,7 @@ exports.run = function(client, message, args) {
       i.react(hayir);
       // evet hayır Şeklinde Sorar :)
     });
+  message.delete(2000)
 };
 
 exports.conf = {
