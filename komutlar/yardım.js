@@ -6,7 +6,8 @@ var prefix = ayarlar.prefix;
 exports.run = (client, message, params) => {
     const embedyardim = new Discord.RichEmbed()
         .setColor("#9900CC")
-       .addField("sunucular", "Botun bulunduğu sunucuları gösterir")
+    .setThumbnail('https://i.ibb.co/0jj0bBK/77aa916d484d3138bea71c180dd3d683.jpg')
+    .addField("sunucular", "Botun bulunduğu sunucuları gösterir")
     .addField("anime", "Anime resimleri atar")
     .addField("botdavet", "Botu sunucunuza davet etmenize sağlar")
     .addField("botsahipleri", "Botun sahibini gösterir")
@@ -18,6 +19,7 @@ exports.run = (client, message, params) => {
     .setDescription("T R A S H BOT | Yardım komutları |Tüm hakları saklıdır (2019-2020)")
     
     if (!params[0]) {
+        message.delete()
         const commandNames = Array.from(client.commands.keys());
         message.channel.send(embedyardim);
     }
