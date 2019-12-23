@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
     
     message.guild.createRole({
         name: `👑 | Kurucu`,
-        color: "#46FE95", 
+        color: "#080000", 
         hoist: true,
         permissions: [
             "ADMINISTRATOR",
@@ -83,27 +83,26 @@ module.exports.run = async (bot, message, args) => {
      message.guild.createChannel(`Eğlence `, "Category").then(OyunKategori => {
      message.guild.createChannel(`Yetkili`, "Category").then(YetkiliKategori => {  
         
-     message.guild.createChannel(`Kurallar`, "text").then(kuralkanal => {
-     message.guild.crateChannel('🎅Meray Mefe Marda🎅',"voice").then(kuralkanal => {  
-     message.guild.createChannel(`Duyurular`, "text").then(duyurukanal => {
-     message.guild.createChannel(`Partnerler`, "text").then(partnerkanal => {
-     message.guild.createChannel(`PartnerŞart`, "text").then(partnersartkanal => {
-     message.guild.createChannel(`Sohbet`, "text").then(sohbetkanal => {
-     message.guild.createChannel(`Bot-Komut`, "text").then(botkomutkanal => {
-     message.guild.createChannel(`Müzik 1`, "voice").then(müzik1kanal => { 
-     message.guild.createChannel(`Müzik 2`, "voice").then(müzik2kanal => {
-     message.guild.createChannel(`Sesli Sohbet 1`, "voice").then(ses1kanal => {
-     message.guild.createChannel(`Sesli Sohbet 2`, "voice").then(ses2kanal => {
-     message.guild.createChannel(`Sesli Sohbet 3`, "voice").then(ses3kanal => {
-     message.guild.createChannel(`Sesli Oyun Odası`, "voice").then(oyunseskanal => { 
-     message.guild.createChannel(`Kelime-Türetmece`, "text").then(kelimetüretme => { 
-     message.guild.createChannel(`Sayı-Sayma`, "text").then(sayısayma => { 
-     message.guild.createChannel(`kayıtlar`, "text").then(kayıtlar => {
-     message.guild.createChannel(`giriş-çıkış`, "text").then(girişçıkış => { 
-     message.guild.createChannel(`medya`, "text").then(medyakanal => {
-     message.guild.createChannel(`destek`, "text").then(destekkanal => { 
-     message.guild.createChannel(`sayaç`, "text").then(sayaçkanal => { 
-     message.guild.createChannel(`AFK`, "voice").then(afkkanal => { 
+     message.guild.createChannel(`📜Kurallar`, "text").then(kuralkanal => {
+     message.guild.createChannel(`📢Duyurular`, "text").then(duyurukanal => {
+     message.guild.createChannel(`📢Partnerler`, "text").then(partnerkanal => {
+     message.guild.createChannel(`📢Partner Reklam`, "text").then(partnersartkanal => {
+     message.guild.createChannel(`🔊Sohbet`, "text").then(sohbetkanal => {
+     message.guild.createChannel(`🤖Bot-Komut`, "text").then(botkomutkanal => {
+     message.guild.createChannel(`🎶Müzik 1`, "voice").then(müzik1kanal => { 
+     message.guild.createChannel(`🎶Müzik 2`, "voice").then(müzik2kanal => {
+     message.guild.createChannel(`🔊Sesli Sohbet 1`, "voice").then(ses1kanal => {
+     message.guild.createChannel(`🔊Sesli Sohbet 2`, "voice").then(ses2kanal => {
+     message.guild.createChannel(`🔊Sesli Sohbet 3`, "voice").then(ses3kanal => {
+     message.guild.createChannel(`🎮Sesli Oyun Odası🔊`, "voice").then(oyunseskanal => { 
+     message.guild.createChannel(`👄Kelime-Türetmece`, "text").then(kelimetüretme => { 
+     message.guild.createChannel(`🔢Sayı-Sayma`, "text").then(sayısayma => { 
+     message.guild.createChannel(`📝kayıtlar`, "text").then(kayıtlar => {
+     message.guild.createChannel(`📝giriş-çıkış`, "text").then(girişçıkış => { 
+     message.guild.createChannel(`📷medya`, "text").then(medyakanal => {
+     message.guild.createChannel(`⚒️destek`, "text").then(destekkanal => { 
+     message.guild.createChannel(`⏲️sayaç`, "text").then(sayaçkanal => { 
+     message.guild.createChannel(`💤AFK`, "voice").then(afkkanal => { 
       
       let role4 = message.guild.roles.find("name", "🛡️ | Moderatör");
       let role3 = message.guild.roles.find("name", "🚨 | Admin");
@@ -281,7 +280,6 @@ module.exports.run = async (bot, message, args) => {
       sayaçkanal.setParent(YetkiliKategori)
       afkkanal.setParent(AFKkategori)
        
-       
       kuralkanal.send(`:tools: <@${message.guild.owner.id}> bu kanala sunucunuzun kurallarını yazınız!`)
       partnersartkanal.send(`:tools: <@${message.guild.owner.id}> bu kanala sunucunuzun partnerlik şartlarını yazınız!`)
       sayısayma.send(`Bu Kanalda 1 Sayısından İtibaren Gidebildiğimiz kadar sayarak uzaklara gideceğiz\n**Örneğin**\n1\n2\n3\n4\n**Kurallar!**\nHerkes alt alta sadece 1 sayı yazabilir\nİlk sayıyı söylüyorum; 1`)
@@ -295,7 +293,7 @@ module.exports.run = async (bot, message, args) => {
       
       
     })})})})})})})})})})})})})})})})})})})}) 
-    })})})})})}) 
+    })})})})})})
   } 
 exports.conf = {
   enabled: true,
