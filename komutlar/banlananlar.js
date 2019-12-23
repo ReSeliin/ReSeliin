@@ -21,7 +21,7 @@ exports.run = (bot, message, args) =>
        for(collectionobject of collection)
        {
            var user = collectionobject[1];
-           embed.addField(` **${user.tag}**`, `__________ __________`);
+           embed.addField(` **${user.tag}**`,`**${user.id}**`, `__________ __________`);
        }
        message.channel.send({embed});
      }

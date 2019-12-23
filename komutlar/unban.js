@@ -20,7 +20,6 @@ exports.run = (client, message, args) => {
   if (reason.length < 1) return message.reply('Ban kaldırma sebebini yazmalısın.');
   if (!user) return message.reply('Banı kaldırılacak kişinin ID numarasını yazmalısın.').catch(console.error);
   message.guild.unban(user);
-  message.delete();
 
   const embed = new Discord.RichEmbed()
     .setColor(0x00AE86)
