@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
      
     
     message.guild.createRole({
-        name: `👑 | Mocuk Adamlar`,
+        name: `👑 | Kurucu`,
         color: "#46FE95", 
         hoist: true,
         permissions: [
@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
     ]
     }).then(kurucurol => {
     message.guild.createRole({
-        name: `🚨 | HAİN`,
+        name: `🚨 | Admin`,
         color: "RED",
         hoist: true,
         permissions: [
@@ -34,7 +34,7 @@ module.exports.run = async (bot, message, args) => {
     ]
         }).then(adminrol => {
     message.guild.createRole({
-        name: `🛡️ | PİC`,
+        name: `🛡️ | Moderatör`,
         color: "#f1c40f" ,
         hoist: true,
         permissions: [
@@ -47,7 +47,7 @@ module.exports.run = async (bot, message, args) => {
     ]
         }).then(modrol => {
     message.guild.createRole({
-        name: `📔 | BU KİM OLLUM`,
+        name: `📔 | Destek Ekibi`,
         color: '#f1c40f',
         hoist: true
         }).then(destekrol => {
@@ -58,7 +58,7 @@ module.exports.run = async (bot, message, args) => {
         }).then(özelrol => {
     message.guild.createRole({
         hoist: true,
-        name: `😊 | Martner`,
+        name: `😊 | Partner`,
         color: "GREEN" 
         }).then(partnerrol => {
     message.guild.createRole({
@@ -91,7 +91,6 @@ module.exports.run = async (bot, message, args) => {
      message.guild.createChannel(`Bot-Komut`, "text").then(botkomutkanal => {
      message.guild.createChannel(`Müzik 1`, "voice").then(müzik1kanal => { 
      message.guild.createChannel(`Müzik 2`, "voice").then(müzik2kanal => {
-     message.guild.createChannel(`Meray Mefe Marda`, "voice").then(seskanal1 =>{   
      message.guild.createChannel(`Sesli Sohbet 1`, "voice").then(ses1kanal => {
      message.guild.createChannel(`Sesli Sohbet 2`, "voice").then(ses2kanal => {
      message.guild.createChannel(`Sesli Sohbet 3`, "voice").then(ses3kanal => {
@@ -294,13 +293,13 @@ module.exports.run = async (bot, message, args) => {
       
       
     })})})})})})})})})})})})})})})})})})})}) 
-    })})})})})})}) 
+    })})})})})}) 
   } 
 exports.conf = {
   enabled: true,
   guildOnly: true,
   aliases: ['sunucukur'],
-  permLevel: 3
+  permLevel: 4
 };
  
 exports.help = {
