@@ -41,5 +41,5 @@ exports.conf = {
 exports.help = {
   name: 'kick',
   description: 'Kullanıcyı Sunucudan atarsınız',
-  usage: 'at <kullanıcı> <sebep>'
+  usage: 'kick <kullanıcı> <sebep>'
 };

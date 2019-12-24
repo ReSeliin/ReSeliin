@@ -32,7 +32,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'sil',
+  name: 'clear',
   description: 'Belirlenen miktarda mesajı siler.',
-  usage: 'sil <silinicek mesaj sayısı>'
+  usage: 'clear <silinicek mesaj sayısı>'
 };

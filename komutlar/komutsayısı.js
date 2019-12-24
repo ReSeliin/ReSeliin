@@ -30,5 +30,5 @@ exports.conf = {
 exports.help = {
   name: 'komutlar',
   description: 'Bottaki Komut Sayısını Gösterir.',
-  usage: 'komutsayısı'
+  usage: 'comands'
 };

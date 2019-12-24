@@ -23,5 +23,5 @@ module.exports.conf = {
 module.exports.help = {
   name: 'kullanıcılar',
   description: 'Üye Durumlarını ve sunucudaki üye sayısını gösterir',
-  usage: 'kullanıcılar'
+  usage: 'users'
 };

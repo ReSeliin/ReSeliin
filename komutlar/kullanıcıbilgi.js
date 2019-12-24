@@ -31,5 +31,5 @@ exports.conf = {
 exports.help = {
   name: 'kullanıcıbilgim',
   description: '',
-  usage: 'kullanıcıbilgim'
+  usage: 'profile'
 };

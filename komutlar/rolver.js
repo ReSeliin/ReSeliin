@@ -29,7 +29,7 @@ exports.conf = {
 exports.help = {
   name: 'rol-ver',
   description: 'İstediğiniz kişiyi istediğiniz rolü verir.',
-  usage: 'rol-ver [kullanıcı] [@rol]'
+  usage: 'give-role [kullanıcı] [@rol]'
 };
 const client = new Discord.Client();
 const db = require('quick.db')
