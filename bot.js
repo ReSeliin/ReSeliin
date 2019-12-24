@@ -38,6 +38,7 @@ const log = message => {
     console.log(`${message}`);
 };
 
+
 client.on("messageDelete", async message => {
   
   if (message.author.bot) return;
@@ -674,6 +675,8 @@ client.on('guildMemberAdd', async member => {
   client.channels.get(kanal).send(`Merhaba ${member} başarıyla rolün verildi.`)
 })
 
+
+  
   
 
 });
