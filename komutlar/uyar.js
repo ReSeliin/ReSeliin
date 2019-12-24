@@ -13,9 +13,9 @@ exports.run = function(client, message, args) {
   message.channel.send(':tada: Başarı ile uyardım!').then(m => m.delete(5000))
   user.send(
   new Discord.RichEmbed()
-    .setTitle('**Uyarıldın :warning:**')
-    .setDescription('**'+message.guild.name+' ** Adlı sunucudan ** '+reason+'** Sebebi ile uyarıldın!')
-    .setFooter("Kurallara uymazsan uyarılırsın")
+    .setTitle('**T R A S H BOT MESAJ**')
+    .setDescription('**'+message.guild.name+' ** Adlı sunucudan ** '+reason+'** ')
+    .setFooter("T R A S H BOT (HAKLARI SAKLIDIR 2020 2021)")
     .setColor("#080000")
   )
 };
