@@ -10,12 +10,12 @@ exports.run = function(client, message, args) {
   if(!reason) return message.channel.send(':warning: Bir sebep yazman gerek')
   if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(':warning: Üzgünüm, Bu işlem için yetkin yok')
   message.delete();
-  message.channel.send(':tada: Başarı ile uyardım!').then(m => m.delete(5000))
+  message.channel.send(':tada: Mesajını başarılı bir şekilde gönderdim').then(m => m.delete(5000))
   user.send(
   new Discord.RichEmbed()
     .setTitle('**T R A S H BOT MESAJ**')
     .setDescription('**'+message.guild.name+' ** Adlı sunucudan ** '+reason+'** ')
-    .setFooter("T R A S H BOT (HAKLARI SAKLIDIR 2020 2021)")
+    .setFooter("Yapımcı Ve Owner ReSeliin #8888 ")
     .setColor("#080000")
   )
 };
